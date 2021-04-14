@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none; // all anchor tags underline removed
+    user-select: none; // research for info
+}
+  
+
+/*---- header navigation styling ----*/
+.header {
+  display: flex; // all block items inside this parent element will slide to the available space.
+  justify-content: space-between; // sets a balanced spacing in every child element.
+
+  position: fixed; // if set: it resets the justify content to none
+  top: 0; // nothing really happens because I set * margin/padding 0
+  left: 0; // same here
+  right: 0; // after setting right to 0 it separates each element with a space between
+  padding: 1rem 4rem;
+  z-index: 1; // makes it show first
+  backdrop-filter: blur(5px);
+
+  .menu-items {
+    display: flex; // menu items will slide to the available space
+    align-items: center; // aligns all to the center. If not set it will float up to the available space
+
+    li {
+      list-style-type: none; // removes the bullet points in all list style element.
+
+      a {
+        color: white;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        margin: 0 0.3rem;
+        border-radius: 2rem;
+        transition: background 0.3s ease-in-out;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.37);
+        }
+      }
+    }
+  }
+}
+
+
+
+
+/*--------------------- nav menu button ------------------------*/
+.menu-btn {
+  position: relative;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  //padding: 1rem 0; // indented style of ham
+  z-index: 1;
+}
+
+.menu-btn__lines, .menu-btn__lines::before, .menu-btn__lines::after {
+  width: 1.5rem;
+  height: 0.1rem;
+  background-color: white;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-btn__lines::before, .menu-btn__lines::after {
+  content: "";
+  position: absolute;
+}
+
+.menu-btn__lines::before {
+  transform: translateY(-0.5rem);
+}
+
+.menu-btn__lines::after {
+  transform: translateY(0.5rem);
+}
+
+
+/*---------- animation for nav mobile menu button ---------*/
+.menu-btn.open .menu-btn__lines {
+  transform: translateX(2rem);
+  background-color: transparent;
+}
+.menu-btn.open .menu-btn__lines::before {
+  transform: rotate(45deg) translate(-1.5rem, 1.5rem);
+  background-color: #ffffff;
+}
+.menu-btn.open .menu-btn__lines::after {
+  transform: rotate(-45deg) translate(-1.5rem, -1.5rem);
+  background-color: #ffffff;
+}
+
+
+/*-------------- media query for menu button ---------------*/
+@media (max-width: 767px) {
+  .header {
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .menu-btn {
+    display: flex;
+  }
+
+  .menu-items {
+    padding-top: 5em;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    //left: 0; // if on, runs to left
+    height: 100vh;
+    width: 100%; // or add width and can change its prefer width 100% full vw, 50% half vw
+    transform: translateX(100vw);
+    background-color: black;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .menu-items.open {
+    transform: translateX(0);
+  }
+
+  .menu-items {
+    
+    li {
+      margin: 1rem 1rem;
+  
+      a {
+        color: #ffffff;
+        font-size: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+
+  .menu-items li a:hover {
+    color: #111111;
+  }
+}
+
+/*---------------- end of header navigation mobile responsive -----------------*/
+
+
+
+
+/*------------- main hero styling ---------------*/
+.main {
+  // position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* hero section */
+.hero-section {
+  background-color: #8C32FF;
+
+  /*------ reference http://www.heropatterns.com/ --------*/
+  // background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+  img {
+    width: clamp(250px, 30vw, 500px);
+    // transform: scaleX(-1); this basically flip an image horizontally
+  }
+}
+
+.hero-col {
+  padding: clamp(2rem, 4vw, 5rem);
+  max-width: 50%;
+}
+
+.main {
+
+  .line {
+    position: absolute;
+    width: 2.7rem;
+    height: 0.2rem;
+    border-radius: 2rem;
+    background-color: #FFFFFF;
+    left: 10%;
+  }
+
+  h1 {
+    font-family: "Poppins", serif;
+    font-size: clamp(50px, 6vw, 80px);
+    font-weight: 600;
+    color: #FFFFFF;
+    line-height: 113%;
+    margin-bottom: 2.5rem; 
+    margin-top: 1.78rem;
+  }
+
+  p {
+    color: #FFFFFF;
+   // padding-right: 1rem;
+  }
+  
+  .cta {
+    margin-top: 60px;
+
+    .divider{
+      width: 20px;
+      height:auto;
+      display:inline-block;
+    }
+
+    a {
+      color: #FFFFFF;
+      padding: 10px 14px;
+      border: 1px solid #FFFFFF;
+      border-radius: 2em;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #FFFFFF;
+        color: #8C32FF;
+        font-weight: 500;
+      }
+    }
+
+    .cta-1 {
+      color: #8C32FF;
+      background-color: #FFFFFF;
+      font-weight: 500;
+
+      &:hover {
+        color: #FFFFFF;
+        background-color: unset;
+      }
+    }
+  }
+}
+
+.custom-shape-divider-bottom-1618388964 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1618388964 svg {
+  position: relative;
+  display: block;
+  width: calc(123% + 1.3px);
+  height: 118px;
+}
+
+.custom-shape-divider-bottom-1618388964 .shape-fill {
+  fill: #FFFFFF;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-bottom-1618388964 svg {
+      width: calc(129% + 1.3px);
+      height: 44px;
+  }
+
+  .hero-col {
+    max-width: calc(100% - 4rem);
+    text-align: center;
+    padding: unset;
+
+    .line {
+      display: none;
+    }
+
+    h1 {
+      font-weight: 500;
+    }
+
+    img {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .cta {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+  
+    a {
+      margin: 0 4rem 15px 4rem;
+    }
+  }
+}
