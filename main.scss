@@ -505,7 +505,7 @@
 
   .m-m-footer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     .t-m-footer {
       font-size: 18px;
@@ -543,8 +543,8 @@
     text-align: center;
   }
 
-  .m-footer {
-    margin-bottom: 50%; 
+  .m-m-footer {
+    margin: auto 4rem 50% 4rem;
   }
 }
 
