@@ -119,7 +119,7 @@
     height: 100vh;
     width: 100%; // or add width and can change its prefer width 100% full vw, 50% half vw
     transform: translateX(100vw);
-    background-color: black;
+    background-color: #8C32FF;
     transition: transform 0.3s ease-in-out;
   }
 
@@ -157,7 +157,7 @@
 
 /*------------- main hero styling ---------------*/
 .main {
-  // position: relative;
+  position: relative;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -168,12 +168,8 @@
 .hero-section {
   background-color: #8C32FF;
 
-  /*------ reference http://www.heropatterns.com/ --------*/
-  // background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-
   img {
     width: clamp(250px, 30vw, 500px);
-    // transform: scaleX(-1); this basically flip an image horizontally
   }
 }
 
@@ -185,12 +181,11 @@
 .main {
 
   .line {
-    position: absolute;
-    width: 2.7rem;
+    position: inherit;
+    width: 2.5rem;
     height: 0.2rem;
     border-radius: 2rem;
     background-color: #FFFFFF;
-    left: 10%;
   }
 
   h1 {
@@ -205,17 +200,10 @@
 
   p {
     color: #FFFFFF;
-   // padding-right: 1rem;
   }
   
   .cta {
     margin-top: 60px;
-
-    .divider{
-      width: 20px;
-      height:auto;
-      display:inline-block;
-    }
 
     a {
       color: #FFFFFF;
@@ -271,13 +259,15 @@
       width: calc(129% + 1.3px);
       height: 44px;
   }
+}
 
+@media (max-width: 700px) {
   .hero-col {
     max-width: calc(100% - 4rem);
     text-align: center;
     padding: unset;
-
-    .line {
+    
+    img, .line {
       display: none;
     }
 
@@ -285,20 +275,214 @@
       font-weight: 500;
     }
 
-    img {
+    a {
+      font-size: 14px;
+    }
+  }
+}
+
+/*---------------------- main hero section styling --------------------------*/
+
+
+
+
+/*----------- team section styling ---------------*/
+.section {
+  text-align: center;
+  margin: 140px auto;
+
+  p {
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px 0 38px 0;
+    text-align: center;
+  }
+
+  a {
+    font-size: 0.89rem;
+    font-weight: 500;
+    padding: 10px 14px;
+    background-color: rgba(214,214,214,0.38);
+    border: 1px transparent rgba(214,214,214,0.38);
+    border-radius: 2em;
+    transition: all 0.5s ease;
+
+      &:hover {
+        background-color: unset;
+      }
+  }
+
+  img {
+    margin-top: 56px;
+    max-width: calc(100% - 1rem);
+    //object-fit: cover;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  .section p {
+    width: calc(100% - 2rem);
+  }
+
+  .same-col {
+      max-width: calc(100% - 4rem);
+      text-align: center;
+      padding: unset;
+  }
+}
+
+
+
+
+
+/*------------ Second Hero Section Styling --------------*/
+.heroine {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* second hero section */
+.second-section {
+  background-color: rgba(140, 50, 255, 0.06);
+
+  .hero-img {
+    width: clamp(250px, 30vw, 500px);
+  }
+
+  .rating {
+    margin-top: 10%;
+    width: clamp(250px, 5vw, 500px);
+  }
+}
+
+.same-col {
+  padding: clamp(2rem, 4vw, 5rem);
+  max-width: 50%;
+}
+
+.heroine {
+
+  h2 {
+    font-family: "Poppins", serif;
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 113%;
+  }
+
+  p {
+    color: #8C32FF;
+    font-size: 21px;
+    margin-top: 20px;
+  }
+  
+  .cta-section {
+    margin-top: 40px;
+
+    a {
+      color: #8C32FF;
+      padding: 10px 14px;
+      border: 1px solid #8C32FF;
+      border-radius: 2em;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #8C32FF;
+        color: white;
+        font-weight: 500;
+        border: 1px transparent #8C32FF;
+      }
+    }
+
+    .cta-section1 {
+      color: white;
+      background-color: #8C32FF;
+      font-weight: 500;
+
+      &:hover {
+        color: #8C32FF;
+        background-color: unset;
+      }
+    }
+  }
+}
+
+.custom-shape-divider-top-1618480031 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1618480031 svg {
+  position: relative;
+  display: block;
+  width: calc(155% + 1.3px);
+  height: 52px;
+}
+
+.custom-shape-divider-top-1618480031 .shape-fill {
+  fill: #FFFFFF;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-top-1618480031 svg {
+      width: calc(140% + 1.3px);
+      height: 41px;
+  }
+}
+
+/*------- media queries ----------*/
+
+@media (max-width: 768px) {
+  .same-col {
+    text-align: left;
+
+    h2 {
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    a {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .second-section {
+
+    .left-col {
+      padding: unset;
+    }
+    
+    .right-col {
+      max-width: calc(100% - 4rem);
+      text-align: center;
+      padding: unset;
+    }
+
+    .hero-img {
       display: none;
     }
   }
 }
 
-@media (max-width: 400px) {
-  .cta {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-  
-    a {
-      margin: 0 4rem 15px 4rem;
-    }
-  }
+
+/*---------- global class -------------*/
+.divider{
+  width: 5px;
+  height:auto;
+  display:inline-block;
 }
